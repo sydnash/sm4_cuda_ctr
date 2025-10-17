@@ -5,7 +5,7 @@ GMSSL_ROOT ?=
 
 TARGET = sm4_ctr
 
-SOURCES= main.cc sm4_cuda.h sm4_cuda.cu
+SOURCES= main.cc sm4_cuda.cu
 
 all: ${TARGET}
 
@@ -23,8 +23,8 @@ endif
 
 CXXFLAGS += $(FLAGS)
 
-${TARGET}: ${SOURCES}
-	${CXX} ${CXXFLAGS} -std=gnu++11 -o $@ ${SOURCES}
+${TARGET}: ${SOURCES} sm4_cuda.h
+	${CXX} ${CXXFLAGS} ${LDLIBS} ${LDFLAGS} -std=c++11 -o $@ ${SOURCES}
 
 clean:
 	rm -f ${TARGET}

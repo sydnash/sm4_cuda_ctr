@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <sys/time.h>
 #include <time.h>
@@ -245,7 +246,6 @@ sm4_ctr32_cuda_encrypt_init(
         sm4_ctr_ctx_t* ctx, const uint8_t key[SM4_KEY_SIZE],
         const uint8_t ctr[SM4_BLOCK_SIZE], int device_id, size_t max_thread)
 {
-    cudaError_t ret;
     struct cudaDeviceProp prop;
     memset(ctx, 0, sizeof(*ctx));
 
