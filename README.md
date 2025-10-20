@@ -5,3 +5,16 @@
 Based on the CUDA implementation of the SM4-CTR mode for encryption and decryption, the calculation results were verified and compared with the GmSSL library.
 
 This implementation referenced the approaches from [SM4-CTR](https://github.com/BESTICSP/SM4-CTR) and [GmSSL](https://github.com/guanzhi/GmSSL), and the results were cross-checked with GmSSL to ensure correctness.
+
+# only run speed test.
+```
+CXX=nvcc make && ./sm4_ctr filename thread_count
+```
+
+# run gmssl correct check
+
+1. install gmssl
+2. build and run, gmssl_install_root_dir is the dir thant gmssl's lib and include placed in.
+   ```
+   CXX=nvcc GMSSL_ROOT=gmssl_install_root_dir make && ./sm4_ctr
+   ``` 
